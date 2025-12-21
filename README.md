@@ -1,85 +1,133 @@
+# Webautomy Frontend
 
-📌 What We Are Building
+A production-ready Webautomy dashboard frontend built with React, TypeScript, and Tailwind CSS. This dashboard is designed to look and feel like a real WhatsApp SaaS platform (similar to MBG Cart / respond.io style).
 
-We are building a WhatsApp API Dashboard for businesses.
+## 🚀 Features
 
-This software will:
+- **Modern UI/UX**: Clean, professional design with smooth interactions
+- **Responsive Design**: Fully responsive layout that works on all devices
+- **TypeScript**: Full type safety throughout the application
+- **Component-Based**: Reusable, well-structured components
+- **Chart Visualizations**: Interactive charts using Recharts
+- **Mock API Ready**: Easy to integrate with real backend APIs
+- **Routing**: Full navigation with React Router
 
-Create official WhatsApp Cloud API for clients
+## 📋 Tech Stack
 
-Allow safe bulk WhatsApp broadcasts
+- **React 18** - UI library
+- **Vite** - Build tool and dev server
+- **TypeScript** - Type safety
+- **Tailwind CSS** - Styling
+- **React Router** - Navigation
+- **Recharts** - Chart library
+- **Axios** - HTTP client
+- **Lucide React** - Icons
 
-Follow Meta rules to avoid bans
+## 🛠️ Installation
 
-Provide a simple dashboard for clients
+1. Install dependencies:
+```bash
+npm install
+```
 
-This is NOT WhatsApp Web and NOT chat inbox.
-This is a WhatsApp API + bulk messaging system.
+2. Start the development server:
+```bash
+npm run dev
+```
 
+3. Build for production:
+```bash
+npm run build
+```
 
-Basic Git workflow decided
+4. Preview production build:
+```bash
+npm run preview
+```
 
-🌳 Branch Structure (VERY IMPORTANT)
+## 📁 Project Structure
 
-We use 3 types of branches:
+```
+src/
+├── components/          # Reusable UI components
+│   ├── Sidebar.tsx     # Left navigation sidebar
+│   ├── Topbar.tsx      # Top navigation bar
+│   ├── StatCard.tsx    # Metric display card
+│   ├── ChannelCard.tsx # Channel card component
+│   ├── LineChart.tsx   # Line chart component
+│   └── BarChart.tsx    # Bar chart component
+├── pages/              # Page components
+│   └── Analytics.tsx   # Analytics dashboard page
+├── layouts/            # Layout components
+│   └── DashboardLayout.tsx
+├── routes/             # Route configuration
+│   └── AppRoutes.tsx
+├── services/           # API services
+│   └── api.ts         # Mock API (ready for backend)
+├── App.tsx            # Main app component
+├── main.tsx           # Entry point
+└── index.css          # Global styles
+```
 
-main        → stable / production (DO NOT TOUCH)
-develop     → daily merged code
-feature/*   → your personal work
+## 🎨 Components
 
-❌ Rules
+### Sidebar
+- Fixed left sidebar with logo
+- Navigation menu items with icons
+- Active state highlighting
+- Upgrade button at bottom
 
-Do NOT push directly to main
+### Topbar
+- Workspace dropdown
+- Help and Profile icons
+- Fixed position
 
-Do NOT work directly on develop
+### Analytics Dashboard
+- Channel cards section
+- Metrics cards (Contacts, New Contacts, Active Contacts, Response Times)
+- Date range selector
+- Interactive charts (Line and Bar charts)
 
-✅ Rules
+## 🔌 Backend Integration
 
-Every task = new feature/ branch
+The project is ready for backend integration. Update the API service in `src/services/api.ts`:
 
-Use Pull Request (PR) to merge
+1. Set your API URL in `.env`:
+```
+VITE_API_URL=https://your-api-url.com
+```
 
-🧑‍💻 How Everyone Should Work (Step-by-Step)
-1️⃣ Pull latest code
-git checkout develop
-git pull
+2. Replace mock functions with real API calls:
+```typescript
+export const analyticsApi = {
+  getMetrics: async () => {
+    const response = await api.get('/analytics/metrics')
+    return response
+  },
+  // ... other endpoints
+}
+```
 
-2️⃣ Create your feature branch
-git checkout -b feature/your-task-name
+## 📱 Responsive Design
 
+The dashboard is fully responsive:
+- **Desktop**: Full sidebar and topbar layout
+- **Tablet**: Optimized spacing and grid layouts
+- **Mobile**: Stacked layouts with touch-friendly interactions
 
-Example:
+## 🎯 Features Implemented
 
-feature/whatsapp-setup
-feature/broadcast-engine
-feature/template-ui
+✅ Fixed sidebar with navigation
+✅ Top bar with workspace selector
+✅ Analytics dashboard with metrics
+✅ Interactive charts (Line & Bar)
+✅ Date range selector
+✅ Channel cards
+✅ Responsive design
+✅ TypeScript throughout
+✅ Mock API ready for backend
+✅ Clean, modern UI
 
-3️⃣ Do your work
+## 📝 License
 
-Write code only related to your task.
-
-4️⃣ Commit and push
-git add .
-git commit -m "Short clear message"
-git push origin feature/your-task-name
-
-5️⃣ Create Pull Request (PR)
-
-Base branch: develop
-
-Wait for review
-
-Fix comments if any
-
-⚠️ Important Product Rules
-
-Only official WhatsApp Cloud API
-
-Only approved message templates
-
-Bulk messages must be rate limited
-
-No shortcuts that risk number ban
-
-🧠 Team Goal (Phase 1)
-
+MIT
